@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Halls - Hospitality Hub</title>
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Scanline effect -->
+<div class="scanline-overlay" aria-hidden="true"></div>
+
+<!-- ─── Floating Navigation ──────────────────────────────────── -->
+<nav class="floating-nav" id="main-nav">
+  <a href="index.html" class="nav-tab">Home</a>
+  <a href="hotels.html" class="nav-tab">Hotels</a>
+  <a href="hightea.html" class="nav-tab">Hi‑Tea</a>
+  <a href="eventhalls.html" class="nav-tab active">Event Halls</a>
+  <a href="#bookings" class="nav-tab">My Bookings</a>
+  <a href="profile.html" class="nav-tab">Profile</a>
+  <a href="support.html" class="nav-tab">Support</a>
+</nav>
+
+<!-- ─── Main Content ─────────────────────────────────────────── -->
+<main class="page">
+
+  <!-- Event Halls Section -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-label">Event Halls</span>
+      <h2 class="section-title">Premium Spaces for Grand Events</h2>
+      <div class="section-line"></div>
+    </div>
+    <p style="color:var(--slate-5);margin-bottom:28px;font-size:14px;">Per-slot pricing for full/half-day bookings.</p>
+
+    <div class="venues-grid" id="eventHallsContainer">
+      <!-- Backend will populate venue cards here -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <div class="footer-logo">H</div>
+      <div>
+        <div class="footer-name">Hospitality Hub</div>
+        <div class="footer-sub">Lahore's Premier Booking Platform</div>
+      </div>
+    </div>
+    <div class="footer-cite">
+      <div>© 2024 Hospitality Hub. All rights reserved.</div>
+    </div>
+  </footer>
+
+</main>
+
+<!-- ─── Scripts ──────────────────────────────────────────────── -->
+<script>
+// Nav active tab
+const navTabs = document.querySelectorAll('.nav-tab');
+navTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    navTabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+  });
+});
+</script>
+
+<script src="js/data.js"></script>
+<script>
+// Load only event halls
+async function loadEventHalls() {
+    try {
+        const res = await fetch('/api/event-halls');
+        const eventHalls = res.ok ? await res.json() : [];
+        renderVenues('eventHallsContainer', eventHalls, 'event-hall');
+    } catch (error) {
+        console.error('Error loading event halls:', error);
+    }
+}
+loadEventHalls();
+</script>
+</body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospitality Hub — Premier Hospitality Platform</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Ambient scan line -->
+  <div class="scan-line"></div>
+
+  <!-- ===================== FLOATING GLASS NAVBAR ===================== -->
+  <nav class="main-navbar" id="mainNav">
+    <div class="navbar-container">
+      <div class="navbar-brand">
+        <a href="index.html" class="logo">
+          <div class="logo-canvas-wrap">
+            <canvas id="logoCanvas" width="72" height="72"></canvas>
+          </div>
+          <span>Hospitality Hub</span>
+        </a>
+      </div>
+
+      <button class="navbar-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="navbar-menu" id="navMenu">
+        <ul class="navbar-nav">
+          <li><a href="index.html"  class="nav-link active">Home</a></li>
+          <li><a href="#hotels"     class="nav-link">Hotels</a></li>
+          <li><a href="#high-tea"   class="nav-link">Hi‑Tea</a></li>
+          <li><a href="#event-halls"class="nav-link">Event Halls</a></li>
+          <li><a href="#bookings"   class="nav-link">My Bookings</a></li>
+          <li><a href="profile.html"class="nav-link">Profile</a></li>
+          <li><a href="support.html"class="nav-link">Support</a></li>
+        </ul>
+        <div class="navbar-actions">
+          <a href="login.html"  class="btn-login"><i class="fas fa-sign-in-alt"></i> Login</a>
+          <a href="signup.html" class="btn-signup"><i class="fas fa-user-plus"></i> Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== MAIN CONTENT ===================== -->
+  <main class="main-content">
+
+    <!-- HERO -->
+    <section class="hero-section">
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-eyebrow animate-fade-in">Lahore's #1 Hospitality Platform</div>
+          <h1 class="hero-title animate-fade-in">
+            Welcome to<br>
+            <span class="highlight">Hospitality Hub</span>
+          </h1>
+          <p class="hero-subtitle animate-fade-in-delay">
+            Discover and book premium hotels, high‑tea venues, and event halls across Lahore — all in one futuristic platform.
+          </p>
+          <div class="hero-actions animate-slide-up">
+            <a href="#hotels"      class="btn-primary animate-hover"><span>Explore Hotels</span><i class="fas fa-arrow-right"></i></a>
+            <a href="signup.html"  class="btn-secondary animate-hover"><span>Join Free</span><i class="fas fa-user-plus"></i></a>
+          </div>
+        </div>
+
+        <div class="hero-visual animate-slide-up">
+          <div class="hero-3d-scene" id="heroScene"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features-section">
+      <div class="container">
+        <div class="section-header animate-fade-in">
+          <h2>Why Hospitality Hub?</h2>
+          <p>Experience the future of hospitality booking with our innovative platform</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card animate-slide-up">
+            <div class="feature-icon"><i class="fas fa-search"></i></div>
+            <h3>Smart Search</h3>
+            <p>Find the perfect venue with advanced filtering and recommendations</p>
+          </div>
+          <div class="feature-card animate-slide-up-delay">
+            <div class="feature-icon"><i class="fas fa-calendar-check"></i></div>
+            <h3>Instant Booking</h3>
+            <p>Real‑time availability with secure payment and instant confirmation</p>
+          </div>
+          <div class="feature-card animate-slide-up-delay-2">
+            <div class="feature-icon"><i class="fas fa-star"></i></div>
+            <h3>Premium Quality</h3>
+            <p>Access to Lahore's finest venues with verified quality standards</p>
+          </div>
+          <div class="feature-card animate-slide-up-delay-3">
+            <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+            <h3>Secure & Trusted</h3>
+            <p>Enterprise‑grade security protecting your data and transactions</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORY NAV -->
+    <section class="category-nav-section">
+      <div class="container">
+        <div class="category-nav animate-fade-in">
+          <a href="#hotels" class="category-card">
+            <i class="fas fa-bed"></i>
+            <h3>Hotels</h3>
+            <p>Luxury stays and premium room services in the heart of Lahore.</p>
+          </a>
+          <a href="#high-tea" class="category-card">
+            <i class="fas fa-mug-hot"></i>
+            <h3>High‑Tea</h3>
+            <p>Elegant tea venues crafted for intimate, memorable experiences.</p>
+          </a>
+          <a href="#event-halls" class="category-card">
+            <i class="fas fa-calendar-alt"></i>
+            <h3>Event Halls</h3>
+            <p>Grand spaces for weddings, conferences, and celebrations.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOTELS BENTO -->
+    <section id="hotels" class="venues-section">
+      <div class="container">
+        <div class="section-header animate-fade-in">
+          <h2>Hotels</h2>
+          <p>Premium hotel venues — live from the admin backend</p>
+        </div>
+        <div class="venues-grid" id="hotelsContainer"></div>
+      </div>
+    </section>
+
+    <!-- HIGH TEA BENTO -->
+    <section id="high-tea" class="venues-section bg-light">
+      <div class="container">
+        <div class="section-header animate-fade-in">
+          <h2>High‑Tea</h2>
+          <p>Curated high‑tea venues updated live from admin</p>
+        </div>
+        <div class="venues-grid" id="highTeaContainer"></div>
+      </div>
+    </section>
+
+    <!-- EVENT HALLS BENTO -->
+    <section id="event-halls" class="venues-section">
+      <div class="container">
+        <div class="section-header animate-fade-in">
+          <h2>Event Halls</h2>
+          <p>Spectacular event spaces from backend venue data</p>
+        </div>
+        <div class="venues-grid" id="eventHallsContainer"></div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item animate-slide-up">
+            <div class="stat-number" data-target="500">0</div>
+            <div class="stat-label">Premium Venues</div>
+          </div>
+          <div class="stat-item animate-slide-up-delay">
+            <div class="stat-number" data-target="10000">0</div>
+            <div class="stat-label">Happy Customers</div>
+          </div>
+          <div class="stat-item animate-slide-up-delay-2">
+            <div class="stat-number" data-target="50000">0</div>
+            <div class="stat-label">Bookings Made</div>
+          </div>
+          <div class="stat-item animate-slide-up-delay-3">
+            <div class="stat-number" data-target="98">0</div>
+            <div class="stat-label">Satisfaction Rate</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content animate-fade-in">
+          <h2>Ready to Experience Premium Hospitality?</h2>
+          <p>Join thousands of satisfied customers who trust Hospitality Hub for their special occasions</p>
+          <div class="cta-actions">
+            <a href="signup.html" class="btn-primary animate-hover"><span>Get Started Today</span><i class="fas fa-rocket"></i></a>
+            <a href="login.html"  class="btn-secondary animate-hover"><span>Sign In</span><i class="fas fa-sign-in-alt"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-section">
+            <h5>Hospitality Hub</h5>
+            <p>Your premier gateway to extraordinary hospitality experiences in Lahore and beyond.</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h5>Quick Links</h5>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Press</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h5>Policies</h5>
+            <ul>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Cookie Policy</a></li>
+              <li><a href="#">Cancellation Policy</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h5>Contact Info</h5>
+            <p><i class="fas fa-phone"></i> +92 300 1234567</p>
+            <p><i class="fas fa-envelope"></i> support@hospitalityhub.pk</p>
+            <p><i class="fas fa-map-marker-alt"></i> Lahore, Pakistan</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Hospitality Hub. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== SCRIPTS ===================== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="js/data.js"></script>
+
+  <script>
+  /* ——— Scroll: nav shrinks & gets cyan glow ——— */
+  const mainNav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    mainNav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  /* ——— Mobile menu ——— */
+  const navToggle = document.getElementById('navToggle');
+  const navMenu   = document.getElementById('navMenu');
+  navToggle?.addEventListener('click', () => navMenu?.classList.toggle('active'));
+  document.querySelectorAll('.navbar-menu a').forEach(l =>
+    l.addEventListener('click', () => navMenu?.classList.remove('active'))
+  );
+
+  /* ——— Smooth scroll ——— */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior:'smooth', block:'start' }); }
+    });
+  });
+
+  /* ——— 3D Logo Canvas (Three.js) ——— */
+  (function initLogo() {
+    const canvas = document.getElementById('logoCanvas');
+    if (!canvas || typeof THREE === 'undefined') return;
+
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha:true, antialias:true });
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(72, 72);
+
+    const scene  = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100);
+    camera.position.set(0, 0, 3.5);
+
+    /* H-shaped geometry from two pillars + crossbar */
+    const mat = new THREE.MeshStandardMaterial({
+      color: 0x050505, emissive: 0x00e5ff, emissiveIntensity: 0.55,
+      metalness: 0.9, roughness: 0.1
+    });
+
+    const group = new THREE.Group();
+
+    const pGeo = new THREE.BoxGeometry(0.28, 1.4, 0.28);
+    const lPillar = new THREE.Mesh(pGeo, mat); lPillar.position.x = -0.5;
+    const rPillar = new THREE.Mesh(pGeo, mat); rPillar.position.x =  0.5;
+    const cGeo    = new THREE.BoxGeometry(0.72, 0.28, 0.28);
+    const cross   = new THREE.Mesh(cGeo, mat);
+
+    group.add(lPillar, rPillar, cross);
+    scene.add(group);
+
+    /* Lights */
+    scene.add(new THREE.AmbientLight(0xffffff, 0.3));
+    const p1 = new THREE.PointLight(0x00e5ff, 4, 10); p1.position.set(2,2,2); scene.add(p1);
+    const p2 = new THREE.PointLight(0xa78bfa, 2, 10); p2.position.set(-2,-1,1); scene.add(p2);
+
+    /* Animate */
+    (function animate() {
+      requestAnimationFrame(animate);
+      group.rotation.y += 0.018;
+      group.rotation.x = Math.sin(Date.now()*0.0008) * 0.25;
+      renderer.render(scene, camera);
+    })();
+  })();
+
+  /* ——— Hero 3D scene ——— */
+  (function initHeroScene() {
+    const container = document.getElementById('heroScene');
+    if (!container || typeof THREE === 'undefined') return;
+
+    const w = container.clientWidth  || 480;
+    const h = container.clientHeight || 480;
+
+    const renderer = new THREE.WebGLRenderer({ alpha:true, antialias:true });
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(w, h);
+    container.appendChild(renderer.domElement);
+
+    const scene  = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(60, w/h, 0.1, 200);
+    camera.position.set(0, 2, 9);
+
+    /* City skyline */
+    const buildings = [];
+    const bMat = new THREE.MeshStandardMaterial({
+      color: 0x0a0a0a, emissive: 0x00e5ff, emissiveIntensity: 0.06,
+      metalness: 0.95, roughness: 0.05
+    });
+
+    for (let i = 0; i < 20; i++) {
+      const h2 = 1 + Math.random() * 5;
+      const w2 = 0.4 + Math.random() * 0.6;
+      const geo = new THREE.BoxGeometry(w2, h2, w2);
+      const mesh = new THREE.Mesh(geo, bMat.clone());
+      mesh.position.set(
+        (Math.random()-0.5)*14,
+        h2/2 - 3,
+        (Math.random()-0.5)*6 - 2
+      );
+      scene.add(mesh);
+      buildings.push(mesh);
+    }
+
+    /* Central H tower */
+    const hMat = new THREE.MeshStandardMaterial({
+      color: 0x050505, emissive: 0x00e5ff, emissiveIntensity: 0.4,
+      metalness: 1, roughness: 0.0
+    });
+    const hGroup = new THREE.Group();
+    const pG = new THREE.BoxGeometry(0.5, 4, 0.5);
+    const lP = new THREE.Mesh(pG, hMat); lP.position.x = -0.8;
+    const rP = new THREE.Mesh(pG, hMat); rP.position.x =  0.8;
+    const cG = new THREE.BoxGeometry(1.3, 0.5, 0.5);
+    const cb = new THREE.Mesh(cG, hMat); cb.position.y = 0.3;
+    hGroup.add(lP, rP, cb);
+    hGroup.position.set(0, 0, 1);
+    scene.add(hGroup);
+
+    /* Floating particles */
+    const partGeo = new THREE.BufferGeometry();
+    const count = 120;
+    const pos = new Float32Array(count*3);
+    for (let i=0; i<count*3; i++) pos[i] = (Math.random()-0.5)*20;
+    partGeo.setAttribute('position', new THREE.BufferAttribute(pos,3));
+    const partMat = new THREE.PointsMaterial({ color:0x00e5ff, size:0.06, transparent:true, opacity:0.6 });
+    scene.add(new THREE.Points(partGeo, partMat));
+
+    /* Ground grid */
+    const grid = new THREE.GridHelper(24, 24, 0x00e5ff, 0x111111);
+    grid.position.y = -3;
+    scene.add(grid);
+
+    /* Lights */
+    scene.add(new THREE.AmbientLight(0xffffff, 0.2));
+    const cyan = new THREE.PointLight(0x00e5ff, 6, 30); cyan.position.set(0,5,5); scene.add(cyan);
+    const vio  = new THREE.PointLight(0x8b5cf6, 3, 20); vio.position.set(-5,3,-3); scene.add(vio);
+
+    let t=0;
+    (function loop() {
+      requestAnimationFrame(loop);
+      t += 0.008;
+      hGroup.rotation.y = Math.sin(t*0.5)*0.3;
+      hGroup.position.y = Math.sin(t)*0.15;
+      cyan.intensity = 5 + Math.sin(t*2)*1.5;
+      grid.rotation.y += 0.002;
+      renderer.render(scene, camera);
+    })();
+
+    window.addEventListener('resize', () => {
+      const nw = container.clientWidth;
+      const nh = container.clientHeight;
+      camera.aspect = nw/nh; camera.updateProjectionMatrix();
+      renderer.setSize(nw, nh);
+    });
+  })();
+
+  /* ——— Stats counter ——— */
+  function animateStats() {
+    document.querySelectorAll('.stat-number').forEach(el => {
+      const target = parseInt(el.dataset.target);
+      const inc = target/80;
+      let cur = 0;
+      const t = setInterval(() => {
+        cur += inc;
+        if (cur >= target) { el.textContent = target.toLocaleString(); clearInterval(t); }
+        else el.textContent = Math.floor(cur).toLocaleString();
+      }, 20);
+    });
+  }
+  new IntersectionObserver(([e]) => { if(e.isIntersecting){ animateStats(); } }, { threshold:0.3 })
+    .observe(document.querySelector('.stats-section'));
+
+  /* ——— Load venues (called from data.js) ——— */
+  window.addEventListener('load', () => {
+    if (typeof loadVenues === 'function') loadVenues();
+  });
+  </script>
+</body>
+</html>

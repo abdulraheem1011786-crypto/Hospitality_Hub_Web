@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hotels - Hospitality Hub</title>
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Scanline effect -->
+<div class="scanline-overlay" aria-hidden="true"></div>
+
+<!-- ─── Floating Navigation ──────────────────────────────────── -->
+<nav class="floating-nav" id="main-nav">
+  <a href="index.html" class="nav-tab">Home</a>
+  <a href="hotels.html" class="nav-tab active">Hotels</a>
+  <a href="hightea.html" class="nav-tab">Hi‑Tea</a>
+  <a href="eventhalls.html" class="nav-tab">Event Halls</a>
+  <a href="#bookings" class="nav-tab">My Bookings</a>
+  <a href="profile.html" class="nav-tab">Profile</a>
+  <a href="support.html" class="nav-tab">Support</a>
+</nav>
+
+<!-- ─── Main Content ─────────────────────────────────────────── -->
+<main class="page">
+
+  <!-- Hotels Section -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-label">Hotels</span>
+      <h2 class="section-title">Luxury Stays in Lahore</h2>
+      <div class="section-line"></div>
+    </div>
+    <p style="color:var(--slate-5);margin-bottom:28px;font-size:14px;">Per-night pricing for premium accommodations.</p>
+
+    <div class="venues-grid" id="hotelsContainer">
+      <!-- Backend will populate venue cards here -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <div class="footer-logo">H</div>
+      <div>
+        <div class="footer-name">Hospitality Hub</div>
+        <div class="footer-sub">Lahore's Premier Booking Platform</div>
+      </div>
+    </div>
+    <div class="footer-cite">
+      <div>© 2024 Hospitality Hub. All rights reserved.</div>
+    </div>
+  </footer>
+
+</main>
+
+<!-- ─── Scripts ──────────────────────────────────────────────── -->
+<script>
+// Nav active tab
+const navTabs = document.querySelectorAll('.nav-tab');
+navTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    navTabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+  });
+});
+</script>
+
+<script src="js/data.js"></script>
+<script>
+// Load only hotels
+async function loadHotels() {
+    try {
+        const res = await fetch('/api/hotels');
+        const hotels = res.ok ? await res.json() : [];
+        renderVenues('hotelsContainer', hotels, 'hotel');
+    } catch (error) {
+        console.error('Error loading hotels:', error);
+    }
+}
+loadHotels();
+</script>
+</body>
+</html>

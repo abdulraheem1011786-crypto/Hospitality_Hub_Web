@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Complete Image API Test</title>
+    <style>
+        body { font-family: monospace; padding: 20px; }
+        .test { margin: 20px 0; padding: 10px; border: 1px solid #ccc; }
+        .success { background-color: #d4edda; }
+        .error { background-color: #f8d7da; }
+    </style>
+</head>
+<body>
+<h1>Complete Image Management API Test</h1>
+<div id="tests"></div>
+
+<script>
+const token = '1|G8Gk25ap0XaBV86Ulm0vXdXLqZ0FUUjhrgOMKl6g3abd043d';
+const venueType = 'hotel';
+const venueId = 1;
+const apiBase = '/api/admin/images';
+let imageId = 1;
+
+const testsDiv = document.getElementById('tests');
+
+async function addTest(name, fn) {
+    try {
+        const result = await fn();
+        const success = result.status < 400;
+        const div = document.createElement('div');
+        div.className = `test ${success ? 'success' : 'error'}`;
+        div.innerHTML = `<strong>${name}:</strong> Status ${result.status}<br><pre>${JSON.stringify(result.data, null, 2)}</pre>`;
+        testsDiv.appendChild(div);
+        return result.data;
+    } catch (error) {
+        const div = document.createElement('div');
+        div.className = 'test error';
+        div.innerHTML = `<strong>${name}:</strong> Error<br><pre>${error.message}</pre>`;
+        testsDiv.appendChild(div);
+    }
+}
+
+async function testAllEndpoints() {
+    // Test 1: Get venue images (should be empty or have previous uploads)
+    await addTest('GET /api/admin/images/venue/hotel/1', async () => {
+        const response = await fetch(`${apiBase}/venue/${venueType}/${venueId}`, {
+            method: 'GET',
+            headers: { 'Authorization': `Bearer ${token}` }
+        });
+        const data = await response.json();
+        return { status: response.status, data };
+    });
+    
+    // Test 2: Upload another image
+    const uploadResult = await addTest('POST /api/admin/images/upload', async () => {
+        const pngData = new Uint8Array([
+            0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A, 0x00, 0x00, 0x00, 0x0D, 0x49, 0x48, 0x44, 0x52,
+            0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x08, 0x02, 0x00, 0x00, 0x00, 0x90, 0x77, 0x53,
+            0xDE, 0x00, 0x00, 0x00, 0x0C, 0x49, 0x44, 0x41, 0x54, 0x08, 0x99, 0x63, 0xF8, 0xFF, 0xFF, 0xFF,
+            0x7F, 0x00, 0x09, 0xFB, 0x03, 0xFD, 0x05, 0x39, 0xF6, 0xEE, 0x00, 0x00, 0x00, 0x00, 0x49, 0x45,
+            0x4E, 0x44, 0xAE, 0x42, 0x60, 0x82
+        ]);
+        
+        const blob = new Blob([pngData], { type: 'image/png' });
+        const file = new File([blob], 'test2.png', { type: 'image/png' });
+        
+        const formData = new FormData();
+        formData.append('venue_type', venueType);
+        formData.append('venue_id', venueId);
+        formData.append('images[]', file);
+        formData.append('alt_text[0]', 'Second Test Image');
+        
+        const response = await fetch(`${apiBase}/upload`, {
+            method: 'POST',
+            headers: { 'Authorization': `Bearer ${token}` },
+            body: formData
+        });
+        const data = await response.json();
+        if (data.images && data.images.length > 0) {
+            imageId = data.images[0].id;
+        }
+        return { status: response.status, data };
+    });
+    
+    // Test 3: Get images again
+    await addTest('GET /api/admin/images/venue/hotel/1 (after upload)', async () => {
+        const response = await fetch(`${apiBase}/venue/${venueType}/${venueId}`, {
+            method: 'GET',
+            headers: { 'Authorization': `Bearer ${token}` }
+        });
+        const data = await response.json();
+        return { status: response.status, data };
+    });
+    
+    // Test 4: Set primary image
+    await addTest(`PATCH /api/admin/images/${imageId}/set-primary`, async () => {
+        const response = await fetch(`${apiBase}/${imageId}/set-primary`, {
+            method: 'PATCH',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({})
+        });
+        const data = await response.json();
+        return { status: response.status, data };
+    });
+    
+    // Test 5: Update image (alt_text)
+    await addTest(`PATCH /api/admin/images/${imageId}`, async () => {
+        const response = await fetch(`${apiBase}/${imageId}`, {
+            method: 'PATCH',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ alt_text: 'Updated alt text' })
+        });
+        const data = await response.json();
+        return { status: response.status, data };
+    });
+    
+    // Test 6: Get images one more time
+    await addTest('GET /api/admin/images/venue/hotel/1 (after updates)', async () => {
+        const response = await fetch(`${apiBase}/venue/${venueType}/${venueId}`, {
+            method: 'GET',
+            headers: { 'Authorization': `Bearer ${token}` }
+        });
+        const data = await response.json();
+        return { status: response.status, data };
+    });
+    
+    // Test 7: Delete image
+    await addTest(`DELETE /api/admin/images/${imageId}`, async () => {
+        const response = await fetch(`${apiBase}/${imageId}`, {
+            method: 'DELETE',
+            headers: { 'Authorization': `Bearer ${token}` }
+        });
+        const data = response.status === 204 ? { message: 'Deleted' } : await response.json();
+        return { status: response.status, data };
+    });
+    
+    // Test 8: Verify deletion
+    await addTest('GET /api/admin/images/venue/hotel/1 (after deletion)', async () => {
+        const response = await fetch(`${apiBase}/venue/${venueType}/${venueId}`, {
+            method: 'GET',
+            headers: { 'Authorization': `Bearer ${token}` }
+        });
+        const data = await response.json();
+        return { status: response.status, data };
+    });
+}
+
+testAllEndpoints();
+</script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospitality Hub - Admin Dashboard</title>
+    
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="css/admin-style.css" rel="stylesheet">
+    <link href="css/image-gallery.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <div class="admin-sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2 class="sidebar-logo">
+                <i class="fas fa-dashboard"></i> Admin
+            </h2>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h6 class="nav-section-title">MAIN</h6>
+                <a href="#/admin/dashboard" data-route="/admin/dashboard" class="nav-link active">
+                    <i class="fas fa-chart-line"></i> Dashboard
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <h6 class="nav-section-title">MANAGEMENT</h6>
+                <a href="#/admin/hotels" data-route="/admin/hotels" class="nav-link">
+                    <i class="fas fa-hotel"></i> Hotels
+                </a>
+                <a href="#/admin/high-tea" data-route="/admin/high-tea" class="nav-link">
+                    <i class="fas fa-tea"></i> High-Tea Venues
+                </a>
+                <a href="#/admin/event-halls" data-route="/admin/event-halls" class="nav-link">
+                    <i class="fas fa-calendar"></i> Event Halls
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <h6 class="nav-section-title">BOOKINGS</h6>
+                <a href="#/admin/bookings" data-route="/admin/bookings" class="nav-link">
+                    <i class="fas fa-book"></i> All Bookings
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <h6 class="nav-section-title">ACCOUNT</h6>
+                <a href="#/admin/settings" data-route="/admin/settings" class="nav-link">
+                    <i class="fas fa-cog"></i> Settings
+                </a>
+                <a href="#" id="logoutBtn" class="nav-link text-danger">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="admin-container">
+        <!-- Top Navigation Bar -->
+        <div class="navbar-top">
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="navbar-brand ms-3">
+                <h1>Admin Dashboard</h1>
+            </div>
+
+            <div class="navbar-actions ms-auto">
+                <div class="user-profile">
+                    <span class="user-name" id="userName">Admin</span>
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page Content -->
+        <div class="page-container">
+            <div id="app-content" class="main-content">
+                <!-- Dynamic content loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/services/admin-api.js"></script>
+    <script src="js/services/admin-auth.js"></script>
+    <script src="js/services/admin-image.js"></script>
+    <script src="js/components/image-gallery.js"></script>
+    <script src="js/pages/admin-login.js"></script>
+    <script src="js/pages/admin-dashboard.js"></script>
+    <script src="js/pages/admin-hotels.js"></script>
+    <script src="js/pages/admin-high-tea.js?v=2026-04-27"></script>
+    <script src="js/pages/admin-event-halls.js"></script>
+    <script src="js/pages/admin-bookings.js"></script>
+    <script src="js/pages/admin-settings.js"></script>
+    <script src="js/utils/admin-router.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

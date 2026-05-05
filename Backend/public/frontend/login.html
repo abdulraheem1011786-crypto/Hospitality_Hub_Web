@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospitality Hub — Login</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="scan-line"></div>
+
+  <!-- FLOATING NAVBAR -->
+  <nav class="main-navbar" id="mainNav">
+    <div class="navbar-container">
+      <div class="navbar-brand">
+        <a href="index.html" class="logo">
+          <div class="logo-canvas-wrap"><canvas id="logoCanvas" width="72" height="72"></canvas></div>
+          <span>Hospitality Hub</span>
+        </a>
+      </div>
+      <button class="navbar-toggle" id="navToggle"><span></span><span></span><span></span></button>
+      <div class="navbar-menu" id="navMenu">
+        <ul class="navbar-nav">
+          <li><a href="index.html"   class="nav-link">Home</a></li>
+          <li><a href="#bookings"    class="nav-link">My Bookings</a></li>
+          <li><a href="profile.html" class="nav-link">Profile</a></li>
+          <li><a href="support.html" class="nav-link">Support</a></li>
+        </ul>
+        <div class="navbar-actions">
+          <a href="login.html"  class="btn-login active"><i class="fas fa-sign-in-alt"></i> Login</a>
+          <a href="signup.html" class="btn-signup"><i class="fas fa-user-plus"></i> Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="auth-page">
+    <div class="container-fluid">
+      <div class="auth-container">
+
+        <!-- Card -->
+        <div class="auth-card animate-fade-in">
+          <div class="auth-header">
+            <h1 class="auth-title">Welcome Back</h1>
+            <p class="auth-subtitle">Sign in to your Hospitality Hub account</p>
+          </div>
+
+          <form id="loginForm" class="auth-form">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                <input type="email" id="email" name="email" required placeholder="your@email.com">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                <input type="password" id="password" name="password" required placeholder="Enter your password">
+              </div>
+            </div>
+
+            <div class="form-check">
+              <input type="checkbox" id="remember" name="remember">
+              <label class="form-check-label" for="remember">Remember me</label>
+            </div>
+
+            <button type="submit" class="btn-primary w-100 animate-hover">
+              <span>Sign In</span>
+              <i class="fas fa-sign-in-alt"></i>
+            </button>
+
+            <div id="formError" class="form-error" style="display:none;"></div>
+          </form>
+
+          <div class="auth-footer">
+            <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+            <p><a href="#forgot">Forgot your password?</a></p>
+          </div>
+
+          <div class="test-credentials">
+            <p><strong>Test Credentials:</strong></p>
+            <p>Email: <code>test@hospitalityhub.pk</code></p>
+            <p>Password: <code>password123</code></p>
+          </div>
+        </div>
+
+        <!-- Feature panel -->
+        <div class="auth-features animate-slide-up">
+          <div class="feature">
+            <i class="fas fa-lock"></i>
+            <h4>Secure &amp; Safe</h4>
+            <p>Enterprise‑grade encryption protects your data at every step</p>
+          </div>
+          <div class="feature">
+            <i class="fas fa-bolt"></i>
+            <h4>Quick Access</h4>
+            <p>Instant booking confirmations and effortless management</p>
+          </div>
+          <div class="feature">
+            <i class="fas fa-headset"></i>
+            <h4>24/7 Support</h4>
+            <p>Our team is always here to help you anytime, anywhere</p>
+          </div>
+          <div class="feature" style="background:var(--cyan-dim);border-color:var(--border-cyan)">
+            <i class="fas fa-hotel" style="color:var(--cyan)"></i>
+            <h4 style="color:var(--cyan)">500+ Venues</h4>
+            <p>Lahore's finest hotels, hi‑tea spots, and event halls at your fingertips</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="footer-content"><div class="container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h5>Hospitality Hub</h5>
+          <p>Your gateway to premium hospitality in Lahore.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#bookings">My Bookings</a></li>
+            <li><a href="profile.html">Profile</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h5>Policies</h5>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Cancellation Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h5>Contact Info</h5>
+          <p><i class="fas fa-phone"></i> +92 300 1234567</p>
+          <p><i class="fas fa-envelope"></i> support@hospitalityhub.pk</p>
+          <p><i class="fas fa-map-marker-alt"></i> Lahore, Pakistan</p>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2024 Hospitality Hub. All rights reserved.</p></div>
+    </div></div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="js/login.js"></script>
+  <script>
+    /* Nav scroll */
+    window.addEventListener('scroll', () =>
+      document.getElementById('mainNav').classList.toggle('scrolled', scrollY > 40));
+
+    /* Mobile menu */
+    document.getElementById('navToggle')?.addEventListener('click', () =>
+      document.getElementById('navMenu')?.classList.toggle('active'));
+    document.querySelectorAll('.navbar-menu a').forEach(l =>
+      l.addEventListener('click', () => document.getElementById('navMenu')?.classList.remove('active')));
+
+    /* 3D Logo */
+    (function() {
+      const c = document.getElementById('logoCanvas');
+      if (!c || typeof THREE === 'undefined') return;
+      const r = new THREE.WebGLRenderer({canvas:c,alpha:true,antialias:true});
+      r.setPixelRatio(devicePixelRatio); r.setSize(72,72);
+      const s = new THREE.Scene(), cam = new THREE.PerspectiveCamera(50,1,0.1,100);
+      cam.position.z = 3.5;
+      const m = new THREE.MeshStandardMaterial({color:0x050505,emissive:0x00e5ff,emissiveIntensity:0.55,metalness:.9,roughness:.1});
+      const g = new THREE.Group();
+      g.add(Object.assign(new THREE.Mesh(new THREE.BoxGeometry(.28,1.4,.28),m),{position:{x:-.5,y:0,z:0}}));
+      g.add(Object.assign(new THREE.Mesh(new THREE.BoxGeometry(.28,1.4,.28),m),{position:{x:.5,y:0,z:0}}));
+      g.add(new THREE.Mesh(new THREE.BoxGeometry(.72,.28,.28),m));
+      s.add(g);
+      s.add(new THREE.AmbientLight(0xffffff,.3));
+      const p=new THREE.PointLight(0x00e5ff,4,10); p.position.set(2,2,2); s.add(p);
+      (function a(){requestAnimationFrame(a);g.rotation.y+=.018;g.rotation.x=Math.sin(Date.now()*.0008)*.25;r.render(s,cam);})();
+    })();
+  </script>
+</body>
+</html>

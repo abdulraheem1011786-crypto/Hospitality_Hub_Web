@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospitality Hub — Support</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="scan-line"></div>
+
+  <nav class="main-navbar" id="mainNav">
+    <div class="navbar-container">
+      <div class="navbar-brand">
+        <a href="index.html" class="logo">
+          <div class="logo-canvas-wrap"><canvas id="logoCanvas" width="72" height="72"></canvas></div>
+          <span>Hospitality Hub</span>
+        </a>
+      </div>
+      <button class="navbar-toggle" id="navToggle"><span></span><span></span><span></span></button>
+      <div class="navbar-menu" id="navMenu">
+        <ul class="navbar-nav">
+          <li><a href="index.html"   class="nav-link">Home</a></li>
+          <li><a href="#bookings"    class="nav-link">My Bookings</a></li>
+          <li><a href="profile.html" class="nav-link">Profile</a></li>
+          <li><a href="support.html" class="nav-link active">Support</a></li>
+        </ul>
+        <div class="navbar-actions">
+          <a href="login.html"  class="btn-login"><i class="fas fa-sign-in-alt"></i> Login</a>
+          <a href="signup.html" class="btn-signup"><i class="fas fa-user-plus"></i> Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="support-header animate-fade-in">
+      <div class="container">
+        <h1>Support &amp; Help</h1>
+        <p>We're here to help you with any questions or issues</p>
+      </div>
+    </div>
+
+    <div class="support-content">
+
+      <!-- Quick Help Cards -->
+      <div class="help-cards animate-slide-up">
+        <div class="help-card">
+          <div class="card-icon"><i class="fas fa-headset"></i></div>
+          <h3>24/7 Support</h3>
+          <p>Chat with our support team anytime, day or night</p>
+          <button class="btn-help" data-action="chat">Start Chat</button>
+        </div>
+        <div class="help-card">
+          <div class="card-icon"><i class="fas fa-phone"></i></div>
+          <h3>Call Us</h3>
+          <p>+92 300 1234567</p>
+          <button class="btn-help" data-action="call">Call Now</button>
+        </div>
+        <div class="help-card">
+          <div class="card-icon"><i class="fas fa-envelope"></i></div>
+          <h3>Email Support</h3>
+          <p>support@hospitalityhub.pk</p>
+          <button class="btn-help" data-action="email">Send Email</button>
+        </div>
+      </div>
+
+      <!-- Main support content -->
+      <div class="support-main">
+
+        <!-- FAQ -->
+        <div class="support-section animate-slide-up">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-list">
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>How do I make a booking?</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="faq-answer">
+                <p>To make a booking:</p>
+                <ol>
+                  <li>Browse our hotels, high‑tea venues, or event halls</li>
+                  <li>Click "Book Now" on your preferred venue</li>
+                  <li>Select your dates and details</li>
+                  <li>Complete the secure payment</li>
+                  <li>Confirmation will be sent to your email instantly</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>How can I modify my booking?</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="faq-answer">
+                <p>To modify your booking:</p>
+                <ol>
+                  <li>Go to "My Bookings" in your profile</li>
+                  <li>Select the booking you want to modify</li>
+                  <li>Click the "Modify" button</li>
+                  <li>Update your dates or details</li>
+                  <li>Any price changes will be calculated automatically</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>What is your cancellation policy?</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="faq-answer">
+                <p>Our cancellation policy:</p>
+                <ul>
+                  <li>Free cancellation up to 7 days before booking</li>
+                  <li>50% refund for cancellations 3–7 days before</li>
+                  <li>No refund for cancellations within 3 days</li>
+                  <li>Contact us directly for special circumstances</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>How do I pay for my booking?</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="faq-answer">
+                <p>We accept multiple payment methods:</p>
+                <ul>
+                  <li>Credit/Debit Cards (Visa, Mastercard)</li>
+                  <li>Bank Transfers</li>
+                  <li>Mobile Wallets (JazzCash, EasyPaisa)</li>
+                  <li>Cash on Arrival (selected venues)</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>Are my payments secure?</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="faq-answer">
+                <p>Yes! We use industry‑standard security measures:</p>
+                <ul>
+                  <li>SSL encryption for all transactions</li>
+                  <li>PCI DSS compliance</li>
+                  <li>Secure payment gateways</li>
+                  <li>Your data is never stored on our servers</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="support-section animate-slide-up-delay">
+          <h2>Get in Touch</h2>
+          <p style="color:var(--text-secondary);margin-bottom:24px;font-size:15px;">Have a question or issue we haven't covered? Contact our support team.</p>
+
+          <form id="contactForm" class="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactName">Full Name</label>
+                <input type="text" id="contactName" name="name" required placeholder="Your full name">
+              </div>
+              <div class="form-group">
+                <label for="contactEmail">Email Address</label>
+                <input type="email" id="contactEmail" name="email" required placeholder="your@email.com">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <select id="subject" name="subject" required>
+                <option value="">Select a subject</option>
+                <option value="booking">Booking Issues</option>
+                <option value="payment">Payment Issues</option>
+                <option value="cancellation">Cancellation Request</option>
+                <option value="feedback">Feedback</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="6" required placeholder="Please describe your issue in detail..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">
+              <span>Send Message</span>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+
+            <div id="formStatus" class="form-status" style="display:none;"></div>
+          </form>
+        </div>
+
+        <!-- Helpful Resources -->
+        <div class="support-section animate-slide-up-delay-2">
+          <h2>Helpful Resources</h2>
+          <div class="links-grid">
+            <a href="#" class="resource-link"><i class="fas fa-book"></i><span>Blog</span></a>
+            <a href="#" class="resource-link"><i class="fas fa-map"></i><span>Travel Guide</span></a>
+            <a href="#" class="resource-link"><i class="fas fa-file-contract"></i><span>Terms &amp; Conditions</span></a>
+            <a href="#" class="resource-link"><i class="fas fa-shield-alt"></i><span>Privacy Policy</span></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-content"><div class="container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h5>Hospitality Hub</h5>
+          <p>Your gateway to premium hospitality in Lahore.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a><a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h5>Quick Links</h5>
+          <ul><li><a href="index.html">Home</a></li><li><a href="#bookings">My Bookings</a></li><li><a href="profile.html">Profile</a></li></ul>
+        </div>
+        <div class="footer-section">
+          <h5>Policies</h5>
+          <ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">Cancellation Policy</a></li></ul>
+        </div>
+        <div class="footer-section">
+          <h5>Contact Info</h5>
+          <p><i class="fas fa-phone"></i> +92 300 1234567</p>
+          <p><i class="fas fa-envelope"></i> support@hospitalityhub.pk</p>
+          <p><i class="fas fa-map-marker-alt"></i> Lahore, Pakistan</p>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2024 Hospitality Hub. All rights reserved.</p></div>
+    </div></div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="js/support.js"></script>
+  <script>
+    window.addEventListener('scroll', () =>
+      document.getElementById('mainNav').classList.toggle('scrolled', scrollY > 40));
+    document.getElementById('navToggle')?.addEventListener('click', () =>
+      document.getElementById('navMenu')?.classList.toggle('active'));
+    document.querySelectorAll('.navbar-menu a').forEach(l =>
+      l.addEventListener('click', () => document.getElementById('navMenu')?.classList.remove('active')));
+
+    /* 3D Logo */
+    (function() {
+      const c = document.getElementById('logoCanvas');
+      if (!c || typeof THREE === 'undefined') return;
+      const r = new THREE.WebGLRenderer({canvas:c,alpha:true,antialias:true});
+      r.setPixelRatio(devicePixelRatio); r.setSize(72,72);
+      const s = new THREE.Scene(), cam = new THREE.PerspectiveCamera(50,1,0.1,100);
+      cam.position.z = 3.5;
+      const m = new THREE.MeshStandardMaterial({color:0x050505,emissive:0x00e5ff,emissiveIntensity:0.55,metalness:.9,roughness:.1});
+      const g = new THREE.Group();
+      [-0.5,0.5].forEach(x => { const mesh = new THREE.Mesh(new THREE.BoxGeometry(.28,1.4,.28),m); mesh.position.x=x; g.add(mesh); });
+      g.add(new THREE.Mesh(new THREE.BoxGeometry(.72,.28,.28),m));
+      s.add(g); s.add(new THREE.AmbientLight(0xffffff,.3));
+      const p=new THREE.PointLight(0x00e5ff,4,10); p.position.set(2,2,2); s.add(p);
+      (function a(){requestAnimationFrame(a);g.rotation.y+=.018;g.rotation.x=Math.sin(Date.now()*.0008)*.25;r.render(s,cam);})();
+    })();
+
+    /* FAQ Accordion */
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const wasActive = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+        if (!wasActive) item.classList.add('active');
+      });
+    });
+
+    /* Help buttons */
+    document.querySelectorAll('.btn-help').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const action = btn.dataset.action;
+        if (action === 'call')  window.location.href = 'tel:+923001234567';
+        if (action === 'email') window.location.href = 'mailto:support@hospitalityhub.pk';
+        if (action === 'chat')  alert('Live chat integration coming soon!');
+      });
+    });
+
+    /* Contact Form */
+    document.getElementById('contactForm')?.addEventListener('submit', async e => {
+      e.preventDefault();
+      const form   = e.target;
+      const status = document.getElementById('formStatus');
+      const btn    = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.innerHTML = '<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>';
+      await new Promise(r => setTimeout(r, 1200));
+      status.style.display = 'flex';
+      status.className = 'form-status success';
+      status.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! We\'ll get back to you within 24 hours.';
+      form.reset();
+      btn.disabled = false;
+      btn.innerHTML = '<span>Send Message</span><i class="fas fa-paper-plane"></i>';
+      setTimeout(() => { status.style.display = 'none'; }, 6000);
+    });
+  </script>
+</body>
+</html>
