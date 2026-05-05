@@ -58,11 +58,7 @@ function renderVenues(containerId, venues, type) {
         const ratingHtml = venue.rating ? `<div class="venue-rating">★ ${venue.rating}</div>` : '';
         const capacityHtml = venue.capacity ? `<div class="venue-capacity">Capacity: ${venue.capacity}</div>` : '';
         const amenitiesHtml = amenities.length ? `<div class="venue-amenities">${amenities.join(' • ')}</div>` : '';
-        const placeholderImage = 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(
-            '<svg xmlns="http://www.w3.org/2000/svg" width="400" height="240"><rect width="400" height="240" fill="#111827"/><text x="50%" y="50%" fill="#9ca3af" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" dominant-baseline="middle">No image available</text></svg>'
-        );
-        const imageSrc = images.length ? `/storage/uploads/venues/${type}/${images[0]}` : placeholderImage;
-        const imageHtml = `<img src="${imageSrc}" alt="${venue.name}" class="venue-image" onerror="this.onerror=null;this.src='${placeholderImage}'">`;
+        const imageHtml = images.length ? `<img src="/storage/uploads/venues/${type}/${images[0]}" alt="${venue.name}" class="venue-image" onerror="this.style.display='none'">` : '';
 
         const card = document.createElement('div');
         card.className = 'glass-card venue-card';

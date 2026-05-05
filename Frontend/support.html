@@ -247,7 +247,55 @@
     </div></div>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- Chatbot Widget -->
+  <div id="chatbotWidget" class="chatbot-widget">
+    <!-- Chatbot Header -->
+    <div class="chatbot-header">
+      <div class="chatbot-title">
+        <i class="fas fa-robot"></i>
+        <span>Hospitality Hub Assistant</span>
+      </div>
+      <button id="chatbotClose" class="chatbot-close-btn" aria-label="Close chat">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <!-- Chatbot Messages Container -->
+    <div class="chatbot-messages" id="chatMessages">
+      <div class="chatbot-message bot-message">
+        <div class="message-content">
+          <p>Hello! 👋 I'm the Hospitality Hub Support Assistant. I'm here to help you with questions about our hotels, high-tea venues, event halls, and booking policies. How can I assist you today?</p>
+        </div>
+        <span class="message-time">just now</span>
+      </div>
+    </div>
+
+    <!-- Chatbot Input -->
+    <div class="chatbot-input-area">
+      <form id="chatbotForm" class="chatbot-form">
+        <input 
+          type="text" 
+          id="chatInput" 
+          class="chatbot-input" 
+          placeholder="Type your question here..."
+          autocomplete="off"
+          required
+        >
+        <button type="submit" class="chatbot-send-btn" aria-label="Send message">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
+      <div id="chatbotStatus" class="chatbot-status" style="display: none;"></div>
+    </div>
+  </div>
+
+  <!-- Chatbot Toggle Button (Floating Action) -->
+  <button id="chatbotToggle" class="chatbot-toggle-btn" aria-label="Open chat">
+    <i class="fas fa-comments"></i>
+    <span class="badge">1</span>
+  </button>
+
+  <script src="js/chatbot.js"></script>
   <script src="js/support.js"></script>
   <script>
     window.addEventListener('scroll', () =>
@@ -290,7 +338,7 @@
         const action = btn.dataset.action;
         if (action === 'call')  window.location.href = 'tel:+923001234567';
         if (action === 'email') window.location.href = 'mailto:support@hospitalityhub.pk';
-        if (action === 'chat')  alert('Live chat integration coming soon!');
+        if (action === 'chat')  window.chatbot && window.chatbot.toggleWidget();
       });
     });
 

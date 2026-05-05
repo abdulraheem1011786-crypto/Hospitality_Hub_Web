@@ -1,0 +1,84 @@
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# Vector Database (rebuild with ingestion.py)
+vector_db/
+*.faiss
+*.pkl
+
+# Logs
+logs/
+*.log
+log/
+
+# Cache
+.cache/
+*.cache
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/settings.json
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+
+# Node modules (if using npm for deployment)
+node_modules/
+
+# Docker
+.dockerignore
+docker-compose.override.yml
